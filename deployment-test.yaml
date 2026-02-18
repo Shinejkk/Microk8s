@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-ui
+  namespace: test
+  labels:
+    app: student-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-ui
+  template:
+    metadata:
+      labels:
+        app: student-ui
+    spec:
+      containers:
+        - name: student-ui
+          image: shinejkk/student-ui
+          ports:
+            - containerPort: 80
